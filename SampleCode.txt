@@ -1,0 +1,95 @@
+// script.js
+
+// Quiz questions and answers
+const quizData = [
+    {
+        question: "What is the capital of France?",
+        options: ["Berlin", "Madrid", "Paris", "Lisbon"],
+        correct: 2
+    },
+    {
+        question: "Who is the author of 'Harry Potter'?",
+        options: ["J.R.R. Tolkien", "J.K. Rowling", "George R.R. Martin", "Stephen King"],
+        correct: 1
+    },
+    {
+        question: "What is the largest planet in our solar system?",
+        options: ["Earth", "Mars", "Jupiter", "Saturn"],
+        correct: 2
+    }
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+// Get HTML elements
+const questionEl = document.getElementById('question');
+const optionsContainer = document.getElementById('options-container');
+const nextBtn = document.getElementById('next-btn');
+const scoreEl = document.getElementById('score');
+
+// Load the first question
+loadQuestion();
+
+// Function to load a question
+function loadQuestion() {
+    // Clear previous options
+    optionsContainer.innerHTML = '';
+
+    // Get current question data
+    const currentQuestion = quizData[currentQuestionIndex];
+    questionEl.textContent = currentQuestion.question;
+
+    // Display options
+    currentQuestion.options.forEach((option, index) => {
+        const optionBtn = document.createElement('button');
+        optionBtn.textContent = option;
+        optionBtn.classList.add('option');
+        optionBtn.addEventListener('click', () => selectOption(index));
+        optionsContainer.appendChild(optionBtn);
+    });
+}
+
+// Function to handle option selection
+function selectOption(selectedOptionIndex) {
+    const correctOptionIndex = quizData[currentQuestionIndex].correct;
+
+    // If the selected option is correct, increment the score
+    if (selectedOptionIndex === correctOptionIndex) {
+        score++;
+    }
+
+    // Disable all option buttons after selection
+    document.querySelectorAll('.option').forEach(option => {
+        option.disabled = true;
+    });
+
+    // Highlight the correct option
+    document.querySelectorAll('.option')[correctOptionIndex].style.backgroundColor = 'green';
+
+    // Enable the next button
+    nextBtn.disabled = false;
+}
+
+// Event listener for the Next button
+nextBtn.addEventListener('click', () => {
+    currentQuestionIndex++;
+
+    // Check if there are more questions
+    if (currentQuestionIndex < quizData.length) {
+        loadQuestion();
+    } else {
+        showFinalScore();
+    }
+
+    // Disable the next button until an option is selected
+    nextBtn.disabled = true;
+});
+
+// Function to display the final score
+function showFinalScore() {
+    questionEl.textContent = "Quiz Completed!";
+    optionsContainer.innerHTML = '';
+    nextBtn.style.display = 'none';
+    scoreEl.textContent = `Your score: ${score} / ${quizData.length}`;
+}

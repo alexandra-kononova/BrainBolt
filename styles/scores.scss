@@ -1,0 +1,48 @@
+@use "./partials/variable" as *;
+@use "./partials/global" as *;
+
+.display {
+  margin: 4.375rem 3.125rem;
+  padding: 1.25rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display__score {
+  color: $zaffre;
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 4rem;
+}
+
+.correct_answer {
+  color: $grape;
+  margin-top: 0;
+}
+
+.display__review--wrapper {
+  text-align: center;
+  color: #ffffff;
+}
+
+.restart {
+  width: 70%;
+  padding: 1rem;
+  border-radius: 0.3125rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+  border: #ffffff;
+  color: $neon-blue;
+}
+
+.restart:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}

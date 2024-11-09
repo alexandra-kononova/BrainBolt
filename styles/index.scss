@@ -1,0 +1,84 @@
+@use "./partials/variable" as *;
+@use "./partials/global" as *;
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0, 1.875rem;
+  & > * {
+    width: 50%;
+  }
+}
+
+.form__trivia {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  padding-top: 4rem;
+  & > * {
+    padding: 0.625rem;
+  }
+}
+
+.userName {
+  width: 20rem;
+  font-size: 1.5625rem;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 1rem;
+  &::placeholder {
+    color: #ffffff;
+  }
+}
+
+.side_image {
+  background-image: url("../assets/images/side-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.category__dropdown {
+  width: 20rem;
+  padding: 0.625rem;
+  font-size: 1.5625rem;
+  background-color: #3a0ca3ff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.difficulty {
+  width: 20rem;
+  padding: 0.625rem;
+  font-size: 1.5625rem;
+  background-color: #3a0ca3ff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  color: #fff;
+}
+
+.button {
+  width: 20rem;
+  padding: 1rem;
+  border-radius: 0.3125rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+  border: #ffffff;
+  color: #3a0ca3ff;
+  text-align: center;
+  margin: 2rem;
+}
+
+.button:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
